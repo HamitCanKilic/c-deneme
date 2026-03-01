@@ -1,0 +1,3 @@
+Flask>=3.0,<4.0
+# Raspberry Pi'de gerçek LED kontrolü için opsiyonel:
+gpiozero>=2.0

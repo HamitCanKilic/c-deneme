@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raspberry Pi Mini Kontrol Paneli</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <h1>Raspberry Pi Mini Kontrol Paneli</h1>
+      <p class="subtitle">GPIO modu: <strong id="gpioMode">{{ gpio_mode }}</strong></p>
+
+      <section class="card">
+        <h2>LED Kontrolü (GPIO 17)</h2>
+        <div class="status-row">
+          <span>Durum:</span>
+          <span id="ledState" class="badge">Yükleniyor...</span>
+        </div>
+        <button id="toggleButton">LED Aç / Kapat</button>
+      </section>
+
+      <section class="card">
+        <h2>Sıcaklık (Demo)</h2>
+        <div class="status-row">
+          <span>Anlık:</span>
+          <span id="temperature">--</span>
+        </div>
+        <div class="status-row">
+          <span>Son güncelleme:</span>
+          <span id="lastUpdate">--</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
