@@ -56,3 +56,34 @@ Açılan dosyaya şunları ekleyin:
 
 - CGNAT kullanıyorsanız dış IP değişebilir ama evdeki cihazlara doğrudan erişim yine kısıtlı olabilir.
 - Dış IP kaynağını değiştirmek isterseniz `--ip-service` kullanabilirsiniz.
+
+---
+
+## Raspberry Pi için çalışan mini demo (Web UI + GPIO)
+
+`pi_mini_demo/` klasöründe, tarayıcıdan açılan modern bir panel bulunur:
+
+- LED aç/kapat (`GPIO 17`)
+- Demo sıcaklık kartı
+- Raspberry Pi dışındaki ortamlarda otomatik `mock` mod
+
+### Kurulum
+
+```bash
+cd pi_mini_demo
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+Tarayıcıdan açın:
+
+- `http://<raspberrypi-ip>:5000`
+
+### Donanım bağlantısı (opsiyonel)
+
+- LED uzun bacak (anot) → 330Ω direnç → GPIO17 (Pin 11)
+- LED kısa bacak (katot) → GND
+
+> Uyarı: GPIO pinine doğrudan (dirençsiz) LED bağlamayın.
